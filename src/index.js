@@ -13,3 +13,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+// Render Toys
+function renderToys(toy) {
+  let h2 = document.createElement('h2')
+  h2.innerText = toy.name
+}
+
+
+//Fetch requests
+function getToys(){
+  return fetch('http://localhost:3000/toys')
+  .then(res => res.json())
+}
+
+// Get toys 
+getToys().then(toys => {
+  toys.forEach(toy => {
+    //function to render toys goes here or something
+    renderToys(toy)
+  })
+})
+
+
+
+//Initialize my functions
+function initialize(){
+  getToys()
+}
+initialize()
